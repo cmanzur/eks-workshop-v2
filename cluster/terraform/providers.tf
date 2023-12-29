@@ -5,6 +5,13 @@ provider "aws" {
 }
 
 terraform {
+  cloud {
+    organization = "carim"
+
+    workspaces {
+      name = "eks-workshop-v2"
+    }
+  }
   required_providers {
     aws = {
       source  = "hashicorp/aws"

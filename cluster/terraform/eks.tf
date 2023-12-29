@@ -31,12 +31,14 @@ module "eks" {
   eks_managed_node_groups = {
     default = {
       instance_types       = ["m5.large"]
+      capacity_type  = "SPOT"
+      
       force_update_version = true
       release_version      = var.ami_release_version
 
-      min_size     = 3
-      max_size     = 6
-      desired_size = 3
+      min_size     = 1
+      max_size     = 2
+      desired_size = 1
       
       update_config = {
         max_unavailable_percentage = 50
