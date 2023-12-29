@@ -1,6 +1,6 @@
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
-  version = "~> 19.16"
+  version = "~> 19.21.0"
 
   cluster_name                   = var.cluster_name
   cluster_version                = var.cluster_version
@@ -31,7 +31,7 @@ module "eks" {
   eks_managed_node_groups = {
     default = {
       instance_types       = ["m5.large"]
-      capacity_type  = "SPOT"
+      capacity_type        = "SPOT"
       
       force_update_version = true
       release_version      = var.ami_release_version
